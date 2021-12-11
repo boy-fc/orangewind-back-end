@@ -1,0 +1,23 @@
+{
+  "name": "orangewind-back-end",
+  "version": "1.0.0",
+  "description": "orangewind",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boy-fc/orangewind-back-end.git"
+  },
+  "keywords": [
+    "orangewind",
+    "back-end"
+  ],
+  "author": "fengcheng",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/boy-fc/orangewind-back-end/issues"
+  },
+  "homepage": "https://github.com/boy-fc/orangewind-back-end#readme"
+}
