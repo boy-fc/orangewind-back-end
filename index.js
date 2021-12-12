@@ -1,15 +1,26 @@
-//使用 require 指令来载入 http 模块
-var http = require("http");
+const path = require('path')
+// 加载 express 模块
+const express = require('express')
 
-//使用 http.createServer() 方法创建服务器,函数通过 request, response 参数来接收和响应数据.
-http.createServer(function(request, response) {
-    // 发送 HTTP 头部
-    // HTTP 状态值: 200 : OK
-    // 内容类型: text/html
-    response.writeHead(200, {"Content-Type": "text/html"});
-    response.write("Hello World!");
-    response.end();
-}).listen(8080);   //使用listen方法绑定8080端口
+// 创建 express 服务器
+const app = express()
+// body-parser是非常常用的一个express中间件，作用是对http请求体进行解析
+const bodyParser = require('body-parser')
 
-//终端打印
-console.log("Server running at http://localhost:8080/");
+/** 中间件*/
+
+// 处理 ‘x-www-form-urlencoded’ 编码格式的POST请求体 （把浏览器提交的数据放到 req.body中）
+app.use(bodyParser.urlencoded({ extended: false }))
+// json请求
+app.use(bodyParser.json())
+//默认静态文件地址
+app.use(express['static'](path.join(__dirname, 'public')))
+
+app.get('/index', function (req, res) {
+  res.end('hello world!')
+})
+// 启动服务器
+app.listen(3000, () =>{
+  console.log('Express 服务器启动，端口port: 3000')
+})
+
